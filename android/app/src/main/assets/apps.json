@@ -1,0 +1,465 @@
+{
+  "schema": 1,
+  "owner": "geek4945-creator",
+  "generated_at": "2026-10-17T05:38:41Z",
+  "apps": [
+    {
+      "id": "jds-toolkit",
+      "name": "JD's Toolkit",
+      "description": "A categorized directory of handy tools and websites (design, AI, free TV, money and jobs, and more), with search and monthly catalog updates.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#4F46E5",
+      "tags": [
+        "tools",
+        "directory"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/jds-toolkit",
+      "web_url": "https://geek4945-creator.github.io/jds-toolkit/",
+      "release_url": "https://github.com/geek4945-creator/jds-toolkit/releases/tag/v1.0.5",
+      "platform": "Android APK + Web",
+      "version": "1.0.5",
+      "apk_url": "https://github.com/geek4945-creator/jds-toolkit/releases/download/v1.0.5/jds-toolkit-v1.0.5.apk",
+      "apk_name": "jds-toolkit-v1.0.5.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:34:21Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
+      "id": "vehicle-maintenance-tracker",
+      "name": "Vehicle Maintenance Tracker",
+      "description": "Track service history, expenses and reminders for tow trucks and other vehicles, with Excel export. Works offline; data stays on the device.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#0F766E",
+      "tags": [
+        "towing",
+        "business",
+        "offline"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/vehicle-maintenance-tracker",
+      "web_url": "https://geek4945-creator.github.io/vehicle-maintenance-tracker/",
+      "release_url": "https://github.com/geek4945-creator/vehicle-maintenance-tracker/releases/tag/v1.0.0",
+      "platform": "Android APK + Web",
+      "version": "1.0.0",
+      "apk_url": "https://github.com/geek4945-creator/vehicle-maintenance-tracker/releases/download/v1.0.0/vehicle-tracker.apk",
+      "apk_name": "vehicle-tracker.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-16T21:54:41Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
+      "id": "flimsy-read",
+      "name": "Flimsy Read",
+      "description": "Private, offline-capable ebook reader and audiobook player with shelves, series sets, cover search and optional Google Drive reading-state sync.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#7C3AED",
+      "tags": [
+        "reading",
+        "books",
+        "audiobooks"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/flimsy-read",
+      "web_url": "https://geek4945-creator.github.io/flimsy-read/",
+      "release_url": "https://github.com/geek4945-creator/flimsy-read/releases/tag/v0.5.13",
+      "platform": "Android APK + Web",
+      "version": "0.5.13",
+      "apk_url": "https://github.com/geek4945-creator/flimsy-read/releases/download/v0.5.13/flimsy-read.apk",
+      "apk_name": "flimsy-read.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:33:34Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
+      "id": "folio-reader",
+      "name": "Folio Reader",
+      "description": "The original ebook reader and audiobook player (Flimsy Read is a renamed copy of it). Bookshelf, series sets, catalogs and deep appearance controls.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#B45309",
+      "tags": [
+        "reading",
+        "books",
+        "audiobooks"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/folio-reader",
+      "web_url": "https://geek4945-creator.github.io/folio-reader/",
+      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.13",
+      "platform": "Android APK + Web",
+      "version": "0.5.13",
+      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.13/folio-reader.apk",
+      "apk_name": "folio-reader.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:33:32Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
+      "id": "retro-pocket",
+      "name": "Retro Pocket",
+      "description": "All-in-one Game Boy, GBC, GBA, NES, SNES and DS emulator that runs in the browser or as an APK. Bring your own ROMs.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#DC2626",
+      "tags": [
+        "games",
+        "emulator"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/retro-gb-nes-all-in-one",
+      "web_url": "https://geek4945-creator.github.io/retro-gb-nes-all-in-one/",
+      "notes": "Debug-signed APK.",
+      "release_url": "https://github.com/geek4945-creator/retro-gb-nes-all-in-one/releases/tag/latest",
+      "platform": "Android APK + Web",
+      "version": "latest",
+      "apk_url": "https://github.com/geek4945-creator/retro-gb-nes-all-in-one/releases/download/latest/RetroPocket-debug.apk",
+      "apk_name": "RetroPocket-debug.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:24:16Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
+      "id": "tvmate-touch",
+      "name": "TVmate Touch",
+      "description": "Touch-friendly IPTV player: M3U/Xtream playlists, channel groups, EPG grid, HLS player with mini player and PiP. Android app plus an iPhone-friendly web app. Bring your own playlist.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#0369A1",
+      "tags": [
+        "tv",
+        "iptv"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/tvmate-touch",
+      "web_url": "https://geek4945-creator.github.io/tvmate-touch-web/",
+      "notes": "Debug build. The APK lives in a private GitHub repo, so downloading it needs you to be signed in to GitHub.",
+      "release_url": "https://github.com/geek4945-creator/tvmate-touch/releases/tag/v0.1.4-debug",
+      "platform": "Android APK + Web",
+      "version": "0.1.4-debug",
+      "apk_url": "https://github.com/geek4945-creator/tvmate-touch/releases/tag/v0.1.4-debug",
+      "apk_name": "tvmate-touch-debug.apk",
+      "apk_private": true,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:09:44Z",
+      "web_ok": true,
+      "apk_ok": null
+    },
+    {
+      "id": "android-optimizer",
+      "name": "Android Optimizer",
+      "description": "Assess a device, monitor CPU/RAM live, close or freeze apps and apply safe, reversible tweaks. Standard edition needs no root; Rooted edition uses your own root manager.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#15803D",
+      "tags": [
+        "android",
+        "utilities"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/android-optimizer",
+      "web_url": null,
+      "release_url": "https://github.com/geek4945-creator/android-optimizer/releases/tag/v1.5.0",
+      "platform": "Android APK",
+      "version": "1.5.0",
+      "apk_url": "https://github.com/geek4945-creator/android-optimizer/releases/download/v1.5.0/AndroidOptimizer-standard-release.apk",
+      "apk_name": "AndroidOptimizer-standard-release.apk",
+      "apk_private": false,
+      "extra_downloads": [
+        {
+          "label": "Rooted edition",
+          "url": "https://github.com/geek4945-creator/android-optimizer/releases/download/v1.5.0/AndroidOptimizer-rooted-release.apk"
+        }
+      ],
+      "last_updated": "2026-10-16T22:19:51Z",
+      "web_ok": null,
+      "apk_ok": true
+    },
+    {
+      "id": "image-to-dxf",
+      "name": "Image to DXF",
+      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters. Runs in the browser.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#B91C1C",
+      "tags": [
+        "cutting",
+        "cad"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/image-to-dxf",
+      "web_url": "https://geek4945-creator.github.io/image-to-dxf/",
+      "platform": "Web",
+      "version": "web",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [
+        {
+          "label": "Windows package (zip)",
+          "url": "https://github.com/geek4945-creator/image-to-dxf/raw/main/image-to-dxf-windows.zip"
+        }
+      ],
+      "last_updated": "2026-10-16T02:26:09Z",
+      "web_ok": true,
+      "apk_ok": null
+    },
+    {
+      "id": "apps-hub",
+      "name": "JD's Apps",
+      "description": "This hub: one place to open every live app and download every APK, refreshed every night at midnight (Pacific).",
+      "status": "Live",
+      "status_note": "",
+      "color": "#111827",
+      "tags": [
+        "hub"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/apps-hub",
+      "web_url": "https://geek4945-creator.github.io/apps-hub/",
+      "release_url": "https://github.com/geek4945-creator/apps-hub/releases/tag/v1.0.0",
+      "platform": "Android APK + Web",
+      "version": "1.0.0",
+      "apk_url": "https://github.com/geek4945-creator/apps-hub/releases/download/v1.0.0/jds-apps-hub-v1.0.0.apk",
+      "apk_name": "jds-apps-hub-v1.0.0.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-17T05:38:33Z",
+      "web_ok": false,
+      "apk_ok": false
+    },
+    {
+      "id": "marco",
+      "name": "Marco",
+      "description": "Self-hosted Marco Polo-style chat with push-to-talk and video messages for iPhone and Android, plus an admin panel.",
+      "status": "In progress",
+      "status_note": "Working starter project (server, admin panel and Docker stack tested). The phone app has not been run on a device yet, and nothing is published.",
+      "color": "#E11D48",
+      "tags": [
+        "chat",
+        "video"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Android + iPhone (planned)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "tow-dispatch",
+      "name": "Tow Dispatch",
+      "description": "Self-hosted towing dispatch board with driver phone page and GPS sharing, live map, motor-club intake form and simple invoices.",
+      "status": "In progress",
+      "status_note": "Working prototype that runs on your own computer or server. Not published yet.",
+      "color": "#EA580C",
+      "tags": [
+        "towing",
+        "dispatch"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Web (self-hosted)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "tow-driver",
+      "name": "Tow Driver",
+      "description": "Native Android and iPhone driver app for Tow Dispatch: see assigned jobs, update status with one big button, call the customer and navigate.",
+      "status": "In progress",
+      "status_note": "A local test APK exists but no release is published yet.",
+      "color": "#C2410C",
+      "tags": [
+        "towing",
+        "dispatch"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Android + iPhone (planned)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "jds-roadside",
+      "name": "JD's Towing & Roadside",
+      "description": "Portland towing and roadside-assistance website and PWA. Requests go out as a prefilled text message.",
+      "status": "In progress",
+      "status_note": "Built locally (with a test APK) but not published yet.",
+      "color": "#D97706",
+      "tags": [
+        "towing",
+        "business"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Web + Android (planned)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "kodihub",
+      "name": "KodiHub",
+      "description": "Kodi (Android / Fire TV) add-on plus a web admin panel that combines live TV with EPG, your media library and scrapers.",
+      "status": "In progress",
+      "status_note": "Add-on and admin panel zips are built locally. Not published yet.",
+      "color": "#1D4ED8",
+      "tags": [
+        "tv",
+        "kodi"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Kodi add-on + web admin",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "solana-follow",
+      "name": "Solana Follow",
+      "description": "Windows desktop app to watch successful Solana traders and trade manually through Jupiter, with safety rails and a simulate-only default.",
+      "status": "In progress",
+      "status_note": "Version 0.1.0 exists locally. Not published, and not financial advice.",
+      "color": "#9333EA",
+      "tags": [
+        "crypto",
+        "desktop"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Windows desktop",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "get-kraken",
+      "name": "Get Kraken",
+      "description": "A project chat exists, but no app files, repo or release were found yet.",
+      "status": "Idea",
+      "status_note": "Nothing built or published yet.",
+      "color": "#0E7490",
+      "tags": [
+        "idea"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "TBD",
+      "version": "Idea",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "home-server-dashboard",
+      "name": "Home Server Dashboard",
+      "description": "Dashboard for the home server: status of services and machines in one place.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "color": "#475569",
+      "tags": [
+        "home-server"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Web (planned)",
+      "version": "Held",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "local-ai",
+      "name": "Local AI",
+      "description": "Run an AI assistant locally on the home server.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "ai"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "TBD",
+      "version": "Held",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "media-library",
+      "name": "Media Library",
+      "description": "Home media library served from the home server.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "media"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "TBD",
+      "version": "Held",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "daily-briefing",
+      "name": "Daily Briefing",
+      "description": "A short daily summary delivered each morning.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "briefing"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "TBD",
+      "version": "Held",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    }
+  ]
+}

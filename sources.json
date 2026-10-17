@@ -1,0 +1,302 @@
+{
+  "_comment": "Curated list of apps. tools/refresh_apps.py reads this, asks the GitHub API for the newest release/APK of each repo, and writes apps.json. Live apps have a repo; planned items (status In progress / Idea / Held) have no links until something is published - add repo/web_url/apk_asset and set status to Live when they ship.",
+  "owner": "geek4945-creator",
+  "apps": [
+    {
+      "id": "jds-toolkit",
+      "name": "JD's Toolkit",
+      "description": "A categorized directory of handy tools and websites (design, AI, free TV, money and jobs, and more), with search and monthly catalog updates.",
+      "repo": "geek4945-creator/jds-toolkit",
+      "web_url": "https://geek4945-creator.github.io/jds-toolkit/",
+      "apk_asset": "^jds-toolkit-v.*\\.apk$",
+      "color": "#4F46E5",
+      "tags": [
+        "tools",
+        "directory"
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "vehicle-maintenance-tracker",
+      "name": "Vehicle Maintenance Tracker",
+      "description": "Track service history, expenses and reminders for tow trucks and other vehicles, with Excel export. Works offline; data stays on the device.",
+      "repo": "geek4945-creator/vehicle-maintenance-tracker",
+      "web_url": "https://geek4945-creator.github.io/vehicle-maintenance-tracker/",
+      "apk_asset": "\\.apk$",
+      "color": "#0F766E",
+      "tags": [
+        "towing",
+        "business",
+        "offline"
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "flimsy-read",
+      "name": "Flimsy Read",
+      "description": "Private, offline-capable ebook reader and audiobook player with shelves, series sets, cover search and optional Google Drive reading-state sync.",
+      "repo": "geek4945-creator/flimsy-read",
+      "web_url": "https://geek4945-creator.github.io/flimsy-read/",
+      "apk_asset": "^flimsy-read\\.apk$",
+      "color": "#7C3AED",
+      "tags": [
+        "reading",
+        "books",
+        "audiobooks"
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "folio-reader",
+      "name": "Folio Reader",
+      "description": "The original ebook reader and audiobook player (Flimsy Read is a renamed copy of it). Bookshelf, series sets, catalogs and deep appearance controls.",
+      "repo": "geek4945-creator/folio-reader",
+      "web_url": "https://geek4945-creator.github.io/folio-reader/",
+      "apk_asset": "^folio-reader\\.apk$",
+      "color": "#B45309",
+      "tags": [
+        "reading",
+        "books",
+        "audiobooks"
+      ],
+      "status": "Live"
+    },
+    {
+      "id": "retro-pocket",
+      "name": "Retro Pocket",
+      "description": "All-in-one Game Boy, GBC, GBA, NES, SNES and DS emulator that runs in the browser or as an APK. Bring your own ROMs.",
+      "repo": "geek4945-creator/retro-gb-nes-all-in-one",
+      "web_url": "https://geek4945-creator.github.io/retro-gb-nes-all-in-one/",
+      "apk_asset": "\\.apk$",
+      "color": "#DC2626",
+      "tags": [
+        "games",
+        "emulator"
+      ],
+      "notes": "Debug-signed APK.",
+      "status": "Live"
+    },
+    {
+      "id": "tvmate-touch",
+      "name": "TVmate Touch",
+      "description": "Touch-friendly IPTV player: M3U/Xtream playlists, channel groups, EPG grid, HLS player with mini player and PiP. Android app plus an iPhone-friendly web app. Bring your own playlist.",
+      "repo": "geek4945-creator/tvmate-touch",
+      "web_repo": "geek4945-creator/tvmate-touch-web",
+      "web_url": "https://geek4945-creator.github.io/tvmate-touch-web/",
+      "apk_asset": "\\.apk$",
+      "color": "#0369A1",
+      "tags": [
+        "tv",
+        "iptv"
+      ],
+      "notes": "Debug build. The APK lives in a private GitHub repo, so downloading it needs you to be signed in to GitHub.",
+      "status": "Live"
+    },
+    {
+      "id": "android-optimizer",
+      "name": "Android Optimizer",
+      "description": "Assess a device, monitor CPU/RAM live, close or freeze apps and apply safe, reversible tweaks. Standard edition needs no root; Rooted edition uses your own root manager.",
+      "repo": "geek4945-creator/android-optimizer",
+      "apk_asset": "^AndroidOptimizer-standard-release\\.apk$",
+      "extra_apks": [
+        {
+          "label": "Rooted edition",
+          "asset": "^AndroidOptimizer-rooted-release\\.apk$"
+        }
+      ],
+      "color": "#15803D",
+      "tags": [
+        "android",
+        "utilities"
+      ],
+      "platform_override": "Android APK",
+      "status": "Live"
+    },
+    {
+      "id": "image-to-dxf",
+      "name": "Image to DXF",
+      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters. Runs in the browser.",
+      "repo": "geek4945-creator/image-to-dxf",
+      "web_url": "https://geek4945-creator.github.io/image-to-dxf/",
+      "extra_downloads": [
+        {
+          "label": "Windows package (zip)",
+          "url": "https://github.com/geek4945-creator/image-to-dxf/raw/main/image-to-dxf-windows.zip"
+        }
+      ],
+      "color": "#B91C1C",
+      "tags": [
+        "cutting",
+        "cad"
+      ],
+      "platform_override": "Web",
+      "status": "Live"
+    },
+    {
+      "id": "apps-hub",
+      "name": "JD's Apps",
+      "description": "This hub: one place to open every live app and download every APK, refreshed every night at midnight (Pacific).",
+      "repo": "geek4945-creator/apps-hub",
+      "web_url": "https://geek4945-creator.github.io/apps-hub/",
+      "apk_asset": "^jds-apps-hub.*\\.apk$",
+      "color": "#111827",
+      "tags": [
+        "hub"
+      ],
+      "fallback": {
+        "version": "1.0.0",
+        "tag": "v1.0.0",
+        "apk_url": "https://github.com/geek4945-creator/apps-hub/releases/download/v1.0.0/jds-apps-hub-v1.0.0.apk",
+        "apk_name": "jds-apps-hub-v1.0.0.apk"
+      },
+      "status": "Live"
+    },
+    {
+      "id": "marco",
+      "name": "Marco",
+      "description": "Self-hosted Marco Polo-style chat with push-to-talk and video messages for iPhone and Android, plus an admin panel.",
+      "status": "In progress",
+      "status_note": "Working starter project (server, admin panel and Docker stack tested). The phone app has not been run on a device yet, and nothing is published.",
+      "platform_override": "Android + iPhone (planned)",
+      "color": "#E11D48",
+      "tags": [
+        "chat",
+        "video"
+      ],
+      "local_path": "/workspace/marco-app"
+    },
+    {
+      "id": "tow-dispatch",
+      "name": "Tow Dispatch",
+      "description": "Self-hosted towing dispatch board with driver phone page and GPS sharing, live map, motor-club intake form and simple invoices.",
+      "status": "In progress",
+      "status_note": "Working prototype that runs on your own computer or server. Not published yet.",
+      "platform_override": "Web (self-hosted)",
+      "color": "#EA580C",
+      "tags": [
+        "towing",
+        "dispatch"
+      ],
+      "local_path": "/workspace/tow-dispatch"
+    },
+    {
+      "id": "tow-driver",
+      "name": "Tow Driver",
+      "description": "Native Android and iPhone driver app for Tow Dispatch: see assigned jobs, update status with one big button, call the customer and navigate.",
+      "status": "In progress",
+      "status_note": "A local test APK exists but no release is published yet.",
+      "platform_override": "Android + iPhone (planned)",
+      "color": "#C2410C",
+      "tags": [
+        "towing",
+        "dispatch"
+      ],
+      "local_path": "/workspace/tow-driver-app"
+    },
+    {
+      "id": "jds-roadside",
+      "name": "JD's Towing & Roadside",
+      "description": "Portland towing and roadside-assistance website and PWA. Requests go out as a prefilled text message.",
+      "status": "In progress",
+      "status_note": "Built locally (with a test APK) but not published yet.",
+      "platform_override": "Web + Android (planned)",
+      "color": "#D97706",
+      "tags": [
+        "towing",
+        "business"
+      ],
+      "local_path": "/workspace/jds-roadside"
+    },
+    {
+      "id": "kodihub",
+      "name": "KodiHub",
+      "description": "Kodi (Android / Fire TV) add-on plus a web admin panel that combines live TV with EPG, your media library and scrapers.",
+      "status": "In progress",
+      "status_note": "Add-on and admin panel zips are built locally. Not published yet.",
+      "platform_override": "Kodi add-on + web admin",
+      "color": "#1D4ED8",
+      "tags": [
+        "tv",
+        "kodi"
+      ],
+      "local_path": "/workspace/kodi-hub"
+    },
+    {
+      "id": "solana-follow",
+      "name": "Solana Follow",
+      "description": "Windows desktop app to watch successful Solana traders and trade manually through Jupiter, with safety rails and a simulate-only default.",
+      "status": "In progress",
+      "status_note": "Version 0.1.0 exists locally. Not published, and not financial advice.",
+      "platform_override": "Windows desktop",
+      "color": "#9333EA",
+      "tags": [
+        "crypto",
+        "desktop"
+      ],
+      "local_path": "/workspace/solana-follow-app"
+    },
+    {
+      "id": "get-kraken",
+      "name": "Get Kraken",
+      "description": "A project chat exists, but no app files, repo or release were found yet.",
+      "status": "Idea",
+      "status_note": "Nothing built or published yet.",
+      "platform_override": "TBD",
+      "color": "#0E7490",
+      "tags": [
+        "idea"
+      ]
+    },
+    {
+      "id": "home-server-dashboard",
+      "name": "Home Server Dashboard",
+      "description": "Dashboard for the home server: status of services and machines in one place.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "platform_override": "Web (planned)",
+      "color": "#475569",
+      "tags": [
+        "home-server"
+      ]
+    },
+    {
+      "id": "local-ai",
+      "name": "Local AI",
+      "description": "Run an AI assistant locally on the home server.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "platform_override": "TBD",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "ai"
+      ]
+    },
+    {
+      "id": "media-library",
+      "name": "Media Library",
+      "description": "Home media library served from the home server.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "platform_override": "TBD",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "media"
+      ]
+    },
+    {
+      "id": "daily-briefing",
+      "name": "Daily Briefing",
+      "description": "A short daily summary delivered each morning.",
+      "status": "Held",
+      "status_note": "Pinned until the server buildout is done.",
+      "platform_override": "TBD",
+      "color": "#475569",
+      "tags": [
+        "home-server",
+        "briefing"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+<resources>
+    <color name="bg_light">#F8FAFC</color>
+    <color name="bg_dark">#0B1020</color>
+    <color name="icon_bg">#111827</color>
+</resources>

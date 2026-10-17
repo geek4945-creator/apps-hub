@@ -1,0 +1,10 @@
+android/.gradle/
+android/build/
+android/app/build/
+android/local.properties
+*.jks
+*.keystore
+keystore.properties
+__pycache__/
+*.pyc
+.DS_Store

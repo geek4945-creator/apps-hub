@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JD's Apps</title>
+<meta name="description" content="One place to open every live app and download every APK.">
+<meta name="theme-color" content="#111827">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="JD's Apps">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="top-row">
+    <h1>JD's Apps</h1>
+    <div class="top-actions">
+      <button id="themeBtn" class="icon-btn" title="Theme: system" aria-label="Change theme">◐</button>
+      <button id="aboutBtn" class="icon-btn" title="About" aria-label="About">ⓘ</button>
+    </div>
+  </div>
+  <input id="q" type="search" placeholder="Search apps…" autocomplete="off" aria-label="Search apps">
+  <div id="statusChips" class="chips" aria-label="Filter by status">
+    <button class="chip on" data-s="all">All</button>
+    <button class="chip" data-s="Live">Live</button>
+    <button class="chip" data-s="In progress">In progress</button>
+    <button class="chip" data-s="Idea">Idea</button>
+    <button class="chip" data-s="Held">Held</button>
+  </div>
+  <div id="chips" class="chips" aria-label="Filter by platform">
+    <button class="chip on" data-f="all">Any platform</button>
+    <button class="chip" data-f="apk">Has APK</button>
+    <button class="chip" data-f="web">Has web</button>
+    <button class="chip" data-f="both">APK + Web</button>
+  </div>
+</header>
+<main>
+  <p id="meta" class="meta"></p>
+  <div id="list" class="list" aria-live="polite"></div>
+  <p id="empty" class="empty" hidden>No apps match your search.</p>
+</main>
+<dialog id="about">
+  <h2>About</h2>
+  <p>JD's Apps lists every live app and APK from <a href="https://github.com/geek4945-creator" target="_blank" rel="noopener">geek4945-creator</a>, with the newest version of each.</p>
+  <p>The list is a file, <a href="apps.json">apps.json</a>. It is rebuilt every night at midnight (Pacific time) from the latest GitHub releases, so new versions appear without updating this app.</p>
+  <p>Android APKs install after you allow “Install unknown apps” for your browser. Source: <a href="https://github.com/geek4945-creator/apps-hub" target="_blank" rel="noopener">apps-hub</a>.</p>
+  <p class="small" id="aboutMeta"></p>
+  <form method="dialog"><button class="btn">Close</button></form>
+</dialog>
+<script src="app.js"></script>
+</body>
+</html>

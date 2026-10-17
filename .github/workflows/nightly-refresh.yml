@@ -1,0 +1,42 @@
+name: Nightly refresh
+# Midnight America/Los_Angeles. GitHub cron is UTC, so run at 07:00 and 08:00 UTC and only continue
+# when it is actually hour 00 in Los Angeles (handles daylight saving). Manual runs always continue.
+on:
+  schedule:
+    - cron: '0 7 * * *'
+    - cron: '0 8 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Is it midnight in Los Angeles?
+        id: gate
+        run: |
+          H=$(TZ=America/Los_Angeles date +%H)
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$H" = "00" ]; then echo "go=true" >> "$GITHUB_OUTPUT"; else echo "go=false" >> "$GITHUB_OUTPUT"; fi
+      - uses: actions/checkout@v4
+        if: steps.gate.outputs.go == 'true'
+      - name: Rebuild apps.json from the latest GitHub releases
+        if: steps.gate.outputs.go == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python3 tools/refresh_apps.py
+      - name: Validate
+        if: steps.gate.outputs.go == 'true'
+        run: python3 -m unittest discover -s tests -v
+      - name: Commit and publish if the list changed
+        if: steps.gate.outputs.go == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet; then echo "No changes"; exit 0; fi
+          git config user.name "apps-hub-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add apps.json docs/apps.json android/app/src/main/assets/apps.json
+          git commit -m "Nightly refresh: update apps list"
+          git push
+          gh api -X POST "repos/${{ github.repository }}/pages/builds" || true
