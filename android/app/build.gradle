@@ -17,8 +17,8 @@ android {
         applicationId 'com.geek4945.appshub'
         minSdk 23
         targetSdk 34
-        versionCode 2
-        versionName '1.0.1'
+        versionCode 3
+        versionName '1.0.2'
         // The app refreshes its list from this file (rebuilt nightly); the copy in assets/ is the offline fallback.
         buildConfigField 'String', 'APPS_URL', '"https://raw.githubusercontent.com/geek4945-creator/apps-hub/main/apps.json"'
         // Newest release of this app (checked at most once a day, and on Refresh).

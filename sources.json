@@ -236,6 +236,20 @@
       "local_path": "/workspace/solana-follow-app"
     },
     {
+      "id": "car-part-compatibility",
+      "name": "Car Part Compatibility",
+      "description": "Phone app to check whether a part fits your car or truck (direct fit, needs modification or full fabrication), with step-by-step install guides, a garage of your vehicles, wish lists and parts listings.",
+      "status": "In progress",
+      "status_note": "Early version 1 being built (Android first, iPhone-compatible); fitment data is still a small unverified sample set. Not published yet.",
+      "platform_override": "Android + iPhone (planned)",
+      "color": "#B45309",
+      "tags": [
+        "vehicles",
+        "parts"
+      ],
+      "local_path": "/workspace/car-part-compatibility"
+    },
+    {
       "id": "get-kraken",
       "name": "Get Kraken",
       "description": "A project chat exists, but no app files, repo or release were found yet.",
