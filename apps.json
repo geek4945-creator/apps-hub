@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-17T05:38:41Z",
+  "generated_at": "2026-10-17T05:40:44Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -123,7 +123,7 @@
       "apk_name": "RetroPocket-debug.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T05:24:16Z",
+      "last_updated": "2026-10-17T05:39:47Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -228,9 +228,9 @@
       "apk_name": "jds-apps-hub-v1.0.0.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T05:38:33Z",
-      "web_ok": false,
-      "apk_ok": false
+      "last_updated": "2026-10-17T05:40:38Z",
+      "web_ok": true,
+      "apk_ok": true
     },
     {
       "id": "marco",
