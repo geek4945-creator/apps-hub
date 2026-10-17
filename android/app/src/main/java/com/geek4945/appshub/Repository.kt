@@ -21,8 +21,10 @@ class Repository(private val ctx: Context) {
     /** Returns the refreshed doc, or null if offline / the file is bad. The cache is only replaced after a successful parse. */
     suspend fun refresh(): AppsDoc? = withContext(Dispatchers.IO) {
         runCatching {
-            val c = URL(BuildConfig.APPS_URL).openConnection() as HttpURLConnection
+            val c = URL(BuildConfig.APPS_URL + "?t=" + System.currentTimeMillis()).openConnection() as HttpURLConnection
             c.connectTimeout = 10_000; c.readTimeout = 15_000
+            c.useCaches = false
+            c.setRequestProperty("Cache-Control", "no-cache")
             c.setRequestProperty("User-Agent", "JDsApps/" + BuildConfig.VERSION_NAME)
             try {
                 if (c.responseCode != 200) return@runCatching null

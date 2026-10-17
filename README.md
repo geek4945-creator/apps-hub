@@ -20,6 +20,17 @@ Fields per app: `id, name, description, status, status_note, platform, version, 
 ### Nightly refresh
 [`.github/workflows/nightly-refresh.yml`](.github/workflows/nightly-refresh.yml) runs the same script at **midnight America/Los_Angeles** (cron fires at 07:00 and 08:00 UTC; the job only continues when it is hour 00 in Los Angeles, so daylight saving is handled), commits `apps.json` if anything changed and triggers a Pages rebuild. Run it any time from the Actions tab (*Run workflow*). Private repos (TVmate Touch's APK) cannot be read by the Actions token, so their last known entry is kept; refresh locally with your own login to update them.
 
+## How updates work
+There are two kinds of update, and neither needs you to do anything except tap "Install" now and then.
+
+**1. The list (every time you open the app).** On every open, on pull-down and on **Refresh**, the Android app downloads the live `apps.json` from this repo (`raw.githubusercontent.com`, cache bypassed). The last good copy is cached on the phone, so it still works offline; a copy bundled in the APK is the first-run fallback. The web app does the same: `apps.json` is fetched network-first (the service worker only serves its cached copy when you are offline) and it re-fetches when you return to the tab or tap ↻. New app versions therefore show up as soon as the nightly job (midnight Pacific) commits them.
+
+**2. The hub app itself (at most once a day).** After refreshing the list, if more than 24 hours have passed since the last check (or you tapped Refresh / *Check for updates now*), the app asks GitHub for this repo's latest release. If its version is newer than the installed one it downloads the APK in the background (progress shown in a banner at the top), checks that it is this app (same package, higher versionCode, expected size), and shows **Install update**. Tapping it opens Android's own installer, where you confirm. Android does not allow silent installs of sideloaded apps, so that confirmation cannot be skipped. If GitHub's API is unavailable the check falls back to the hub's own entry in `apps.json`. An update that was found but not installed is remembered and offered again on the next open.
+
+**One-time permission:** the first time you install an update Android sends you to *Install unknown apps* for **JD's Apps**; switch on *Allow from this source*, press back, and the installer opens. Updates install over the existing app (same package `com.geek4945.appshub`, same signing key), keeping your theme choice and cache.
+
+Publishing an update: bump `versionCode`/`versionName` in `android/app/build.gradle`, build the signed release, and create a GitHub release `vX.Y.Z` with the APK attached as `jds-apps-hub-vX.Y.Z.apk`. Installed apps pick it up within a day (or on the next manual Refresh).
+
 ## Build the Android app
 Requirements: JDK 17, Android SDK 34, Gradle 8.7+.
 ```bash

@@ -13,10 +13,11 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.horizontalScroll
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -26,12 +27,20 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
+import java.util.TimeZone
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent { HubApp(Repository(applicationContext)) }
+        setContent { HubApp(Repository(applicationContext), Updater(applicationContext)) }
     }
 }
 
@@ -46,7 +55,7 @@ private fun openUrl(ctx: Context, url: String) {
 private fun parseColor(hex: String): Color = try { Color(android.graphics.Color.parseColor(hex)) } catch (e: Exception) { Color(0xFF4F46E5) }
 
 @Composable
-fun HubApp(repo: Repository) {
+fun HubApp(repo: Repository, updater: Updater) {
     val ctx = LocalContext.current
     val prefs = remember { ctx.getSharedPreferences("hub", Context.MODE_PRIVATE) }
     var theme by remember { mutableStateOf(prefs.getString("theme", "system") ?: "system") }
@@ -55,14 +64,22 @@ fun HubApp(repo: Repository) {
     else lightColorScheme(primary = Color(0xFF4F46E5), background = Color(0xFFF8FAFC), surface = Color.White, onSurface = Color(0xFF0F172A), onBackground = Color(0xFF0F172A), surfaceVariant = Color(0xFFEEF2FF))
     MaterialTheme(colorScheme = scheme) {
         Surface(Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-            HubScreen(repo, theme) { t -> theme = t; prefs.edit().putString("theme", t).apply() }
+            HubScreen(repo, updater, theme) { t -> theme = t; prefs.edit().putString("theme", t).apply() }
         }
     }
 }
 
+sealed interface UpdateUi {
+    data object None : UpdateUi
+    data class Downloading(val info: UpdateInfo, val pct: Int) : UpdateUi
+    data class Ready(val info: UpdateInfo) : UpdateUi
+    data class NeedPermission(val info: UpdateInfo) : UpdateUi
+    data class Failed(val info: UpdateInfo, val msg: String) : UpdateUi
+}
+
 @OptIn(ExperimentalMaterial3Api::class, ExperimentalLayoutApi::class)
 @Composable
-fun HubScreen(repo: Repository, theme: String, setTheme: (String) -> Unit) {
+fun HubScreen(repo: Repository, updater: Updater, theme: String, setTheme: (String) -> Unit) {
     val ctx = LocalContext.current
     val scope = rememberCoroutineScope()
     var doc by remember { mutableStateOf(repo.loadLocal()) }
@@ -71,27 +88,80 @@ fun HubScreen(repo: Repository, theme: String, setTheme: (String) -> Unit) {
     var status by remember { mutableStateOf<String?>(null) }
     var platform by remember { mutableStateOf(AppsParser.Platform.ANY) }
     var showAbout by remember { mutableStateOf(false) }
+    var upd by remember { mutableStateOf<UpdateUi>(UpdateUi.None) }
+    var downloading by remember { mutableStateOf(false) }
+    var awaitingPermission by remember { mutableStateOf(false) }
+    var lastCheck by remember { mutableStateOf(updater.lastCheck()) }
 
-    fun refresh(manual: Boolean) {
-        if (refreshing) return
-        refreshing = true
+    fun startDownload(info: UpdateInfo) {
+        if (downloading) return
+        downloading = true
+        upd = UpdateUi.Downloading(info, 0)
         scope.launch {
-            val r = repo.refresh()
-            refreshing = false
-            if (r != null) { if ((r.generatedAt ?: "") >= (doc.generatedAt ?: "")) doc = r; if (manual) Toast.makeText(ctx, "List is up to date", Toast.LENGTH_SHORT).show() }
-            else if (manual) Toast.makeText(ctx, "Couldn't refresh. Showing the saved list.", Toast.LENGTH_SHORT).show()
+            val ok = try { updater.download(info) { p -> upd = UpdateUi.Downloading(info, p) } } catch (e: Exception) { false }
+            downloading = false
+            upd = if (ok) UpdateUi.Ready(info) else UpdateUi.Failed(info, "The download didn't finish.")
         }
     }
-    LaunchedEffect(Unit) { refresh(false) }
+
+    fun install(info: UpdateInfo) {
+        if (!updater.canInstall()) {
+            awaitingPermission = true
+            upd = UpdateUi.NeedPermission(info)
+            updater.openInstallPermissionSettings()
+            return
+        }
+        if (!updater.launchInstaller(info)) upd = UpdateUi.Failed(info, "Couldn't open the installer.")
+    }
+
+    /** Re-fetches apps.json, then (at most once a day unless [force]) looks for a newer release and downloads it in the background. */
+    suspend fun fullRefresh(force: Boolean) {
+        if (refreshing) return
+        refreshing = true
+        val r = repo.refresh()
+        if (r != null && (r.generatedAt ?: "") >= (doc.generatedAt ?: "")) doc = r
+        var msg = if (r != null) "List is up to date." else "Couldn't refresh the list; showing the saved copy."
+        // An update found on an earlier day may be waiting (downloaded or not).
+        updater.pending()?.let { p ->
+            if (upd is UpdateUi.None) {
+                if (withContext(Dispatchers.IO) { updater.isDownloaded(p) }) upd = UpdateUi.Ready(p) else startDownload(p)
+            }
+        }
+        if (updater.shouldCheck(force)) {
+            try {
+                val n = updater.check(doc)
+                lastCheck = updater.lastCheck()
+                if (n != null) {
+                    msg += " Update ${n.version} available."
+                    if (upd !is UpdateUi.Downloading) {
+                        if (withContext(Dispatchers.IO) { updater.isDownloaded(n) }) upd = UpdateUi.Ready(n) else startDownload(n)
+                    }
+                } else {
+                    msg += " App is up to date."
+                    if (upd !is UpdateUi.Downloading) upd = UpdateUi.None
+                }
+            } catch (e: Exception) { msg += " Couldn't check for app updates." }
+        }
+        refreshing = false
+        if (force) Toast.makeText(ctx, msg, Toast.LENGTH_SHORT).show()
+    }
+    LaunchedEffect(Unit) { fullRefresh(false) }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        if (awaitingPermission && updater.canInstall()) {
+            awaitingPermission = false
+            (upd as? UpdateUi.NeedPermission)?.let { install(it.info) }
+        }
+    }
 
     val shown = doc.apps.filter { AppsParser.matches(it, query, status, platform) }
 
     Column(Modifier.fillMaxSize().statusBarsPadding()) {
         Row(Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Text("JD's Apps", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
-            TextButton(onClick = { refresh(true) }) { Text(if (refreshing) "Refreshing…" else "Refresh") }
+            TextButton(onClick = { scope.launch { fullRefresh(true) } }) { Text(if (refreshing) "Refreshing…" else "Refresh") }
             TextButton(onClick = { showAbout = true }) { Text("About") }
         }
+        UpdateBanner(upd, onInstall = { install(it) }, onRetry = { startDownload(it) })
         OutlinedTextField(
             value = query, onValueChange = { query = it }, singleLine = true,
             placeholder = { Text("Search apps…") },
@@ -110,11 +180,11 @@ fun HubScreen(repo: Repository, theme: String, setTheme: (String) -> Unit) {
             "${shown.size} of ${doc.apps.size} apps" + (AppsParser.formatPacific(doc.generatedAt).takeIf { it.isNotEmpty() }?.let { " · list refreshed $it" } ?: ""),
             fontSize = 12.sp, color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f), modifier = Modifier.padding(horizontal = 16.dp, vertical = 6.dp),
         )
-        if (shown.isEmpty()) {
-            Text("No apps match your search.", modifier = Modifier.padding(24.dp), color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f))
-        }
-        LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 24.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
-            items(shown, key = { it.id }) { AppCard(it) }
+        PullToRefreshBox(isRefreshing = refreshing, onRefresh = { scope.launch { fullRefresh(true) } }, modifier = Modifier.fillMaxSize()) {
+            LazyColumn(Modifier.fillMaxSize(), contentPadding = PaddingValues(start = 16.dp, end = 16.dp, bottom = 24.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                if (shown.isEmpty()) item { Text("No apps match your search.", modifier = Modifier.padding(8.dp), color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f)) }
+                items(shown, key = { it.id }) { AppCard(it) }
+            }
         }
     }
 
@@ -124,10 +194,15 @@ fun HubScreen(repo: Repository, theme: String, setTheme: (String) -> Unit) {
             confirmButton = { TextButton(onClick = { showAbout = false }) { Text("Close") } },
             title = { Text("About JD's Apps") },
             text = {
-                Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                Column(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.verticalScroll(rememberScrollState())) {
                     Text("Version ${BuildConfig.VERSION_NAME}. Lists every live app and APK from geek4945-creator, plus what's planned.")
-                    Text("The list is a file (apps.json) rebuilt every night at midnight Pacific from the latest GitHub releases. Tap Refresh to pull it now; new versions show up without updating this app.")
-                    Text("APKs install after you allow \"Install unknown apps\" for your browser.")
+                    Text("Every time you open the app (and when you pull down or tap Refresh) it re-downloads apps.json, so the list is always current. Once a day it also checks for a newer version of this app, downloads it in the background and asks you to install it.")
+                    Text(
+                        if (lastCheck > 0) "Last update check: " + SimpleDateFormat("MMM d, yyyy, h:mm a", Locale.US).apply { timeZone = TimeZone.getTimeZone("America/Los_Angeles") }.format(Date(lastCheck)) + " PT"
+                        else "No update check yet.",
+                        fontSize = 12.sp,
+                    )
+                    TextButton(onClick = { showAbout = false; scope.launch { fullRefresh(true) } }) { Text("Check for updates now") }
                     Text("Theme", fontWeight = FontWeight.SemiBold)
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         listOf("system", "light", "dark").forEach { t -> FilterChip(selected = theme == t, onClick = { setTheme(t) }, label = { Text(t.replaceFirstChar { it.uppercase() }) }) }
@@ -137,6 +212,40 @@ fun HubScreen(repo: Repository, theme: String, setTheme: (String) -> Unit) {
                 }
             },
         )
+    }
+}
+
+@Composable
+fun UpdateBanner(u: UpdateUi, onInstall: (UpdateInfo) -> Unit, onRetry: (UpdateInfo) -> Unit) {
+    if (u is UpdateUi.None) return
+    Card(
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primary, contentColor = MaterialTheme.colorScheme.onPrimary),
+        shape = RoundedCornerShape(12.dp),
+        modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 6.dp),
+    ) {
+        Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(6.dp)) {
+            when (u) {
+                is UpdateUi.Downloading -> {
+                    Text("Downloading update ${u.info.version}… ${u.pct}%", fontWeight = FontWeight.SemiBold)
+                    LinearProgressIndicator(progress = { u.pct / 100f }, modifier = Modifier.fillMaxWidth(), color = MaterialTheme.colorScheme.onPrimary, trackColor = MaterialTheme.colorScheme.onPrimary.copy(alpha = 0.3f))
+                }
+                is UpdateUi.Ready -> {
+                    Text("Update ${u.info.version} is ready", fontWeight = FontWeight.SemiBold)
+                    Text("Tap Install and confirm in the Android installer. Your list and settings are kept.", fontSize = 12.sp)
+                    Button(onClick = { onInstall(u.info) }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimary, contentColor = MaterialTheme.colorScheme.primary)) { Text("Install update") }
+                }
+                is UpdateUi.NeedPermission -> {
+                    Text("Allow installs from JD's Apps", fontWeight = FontWeight.SemiBold)
+                    Text("Turn on \"Allow from this source\" in the settings screen, then come back. Android asks once.", fontSize = 12.sp)
+                    Button(onClick = { onInstall(u.info) }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimary, contentColor = MaterialTheme.colorScheme.primary)) { Text("Open settings") }
+                }
+                is UpdateUi.Failed -> {
+                    Text("Update ${u.info.version} available. ${u.msg}", fontWeight = FontWeight.SemiBold)
+                    Button(onClick = { onRetry(u.info) }, colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.onPrimary, contentColor = MaterialTheme.colorScheme.primary)) { Text("Try again") }
+                }
+                UpdateUi.None -> {}
+            }
+        }
     }
 }
 

@@ -78,6 +78,7 @@
     theme = theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
     localStorage.setItem('appshub.theme', theme); applyTheme(theme);
   });
+  $('refreshBtn').addEventListener('click', function () { lastLoad = Date.now(); load(); });
   $('aboutBtn').addEventListener('click', function () { var d = $('about'); if (d.showModal) d.showModal(); else d.setAttribute('open', ''); });
   $('q').addEventListener('input', function (e) { state.q = e.target.value; render(); });
   $('statusChips').addEventListener('click', function (e) {
@@ -92,6 +93,11 @@
     Array.prototype.forEach.call($('chips').children, function (c) { c.classList.toggle('on', c === e.target); });
     render();
   });
+  var lastLoad = Date.now();
   load();
+  // Re-fetch apps.json whenever the app/tab comes back to the foreground (at most every 60 s).
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible' && Date.now() - lastLoad > 60000) { lastLoad = Date.now(); load(); }
+  });
   if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
 })();

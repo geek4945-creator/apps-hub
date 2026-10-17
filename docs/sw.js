@@ -1,5 +1,5 @@
-/* Offline shell. Same-origin: network first (4 s timeout) then cache, so apps.json is always fresh when online. */
-var CACHE = 'apps-hub-v1';
+/* Offline shell. Same-origin (including apps.json): network first (4 s timeout, HTTP cache bypassed) then the last good cached copy, so the list is fresh whenever you are online. */
+var CACHE = 'apps-hub-v2';
 var SHELL = ['./', 'index.html', 'style.css', 'app.js', 'apps.json', 'manifest.webmanifest',
   'icons/apple-touch-icon.png', 'icons/icon-192.png', 'icons/icon-512.png', 'icons/icon-maskable-512.png', 'icons/favicon-32.png'];
 self.addEventListener('install', function (e) {
@@ -24,7 +24,7 @@ self.addEventListener('fetch', function (e) {
     var timer = setTimeout(function () {
       fromCache().then(function (hit) { if (hit && !settled) { settled = true; resolve(hit); } });
     }, 4000);
-    fetch(req).then(function (res) {
+    fetch(req, { cache: 'no-cache' }).then(function (res) {
       clearTimeout(timer);
       if (res && res.ok) { var copy = res.clone(); caches.open(CACHE).then(function (c) { c.put(req, copy); }); }
       if (!settled) { settled = true; resolve(res); }
