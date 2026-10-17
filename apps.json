@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-17T07:08:05Z",
+  "generated_at": "2026-10-17T07:29:31Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -123,7 +123,7 @@
       "apk_name": "RetroPocket-debug.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T06:21:33Z",
+      "last_updated": "2026-10-17T07:10:13Z",
       "web_ok": true,
       "apk_ok": true
     },
