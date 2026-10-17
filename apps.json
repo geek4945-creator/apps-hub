@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-17T07:04:43Z",
+  "generated_at": "2026-10-17T07:08:05Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -221,14 +221,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/apps-hub",
       "web_url": "https://geek4945-creator.github.io/apps-hub/",
-      "release_url": "https://github.com/geek4945-creator/apps-hub/releases/tag/v1.0.1",
+      "release_url": "https://github.com/geek4945-creator/apps-hub/releases/tag/v1.0.2",
       "platform": "Android APK + Web",
-      "version": "1.0.1",
-      "apk_url": "https://github.com/geek4945-creator/apps-hub/releases/download/v1.0.1/jds-apps-hub-v1.0.1.apk",
-      "apk_name": "jds-apps-hub-v1.0.1.apk",
+      "version": "1.0.2",
+      "apk_url": "https://github.com/geek4945-creator/apps-hub/releases/download/v1.0.2/jds-apps-hub-v1.0.2.apk",
+      "apk_name": "jds-apps-hub-v1.0.2.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T05:47:27Z",
+      "last_updated": "2026-10-17T07:07:55Z",
       "web_ok": true,
       "apk_ok": true
     },
