@@ -159,7 +159,7 @@ fun HubScreen(repo: Repository, updater: Updater, theme: String, setTheme: (Stri
         Row(Modifier.fillMaxWidth().padding(start = 16.dp, end = 8.dp, top = 8.dp), verticalAlignment = Alignment.CenterVertically) {
             Text("JD's Apps", fontSize = 24.sp, fontWeight = FontWeight.Bold, modifier = Modifier.weight(1f))
             TextButton(onClick = { scope.launch { fullRefresh(true) } }) { Text(if (refreshing) "Refreshing…" else "Refresh") }
-            TextButton(onClick = { showAbout = true }) { Text("About") }
+            TextButton(onClick = { showAbout = true }) { Text("Settings") }
         }
         UpdateBanner(upd, onInstall = { install(it) }, onRetry = { startDownload(it) })
         OutlinedTextField(
@@ -192,7 +192,7 @@ fun HubScreen(repo: Repository, updater: Updater, theme: String, setTheme: (Stri
         AlertDialog(
             onDismissRequest = { showAbout = false },
             confirmButton = { TextButton(onClick = { showAbout = false }) { Text("Close") } },
-            title = { Text("About JD's Apps") },
+            title = { Text("Settings & About") },
             text = {
                 Column(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.verticalScroll(rememberScrollState())) {
                     Text("Version ${BuildConfig.VERSION_NAME}. Lists every live app and APK from geek4945-creator, plus what's planned.")
@@ -202,7 +202,7 @@ fun HubScreen(repo: Repository, updater: Updater, theme: String, setTheme: (Stri
                         else "No update check yet.",
                         fontSize = 12.sp,
                     )
-                    TextButton(onClick = { showAbout = false; scope.launch { fullRefresh(true) } }) { Text("Check for updates now") }
+                    Button(onClick = { showAbout = false; scope.launch { fullRefresh(true) } }, modifier = Modifier.fillMaxWidth()) { Text("Check for app updates") }
                     Text("Theme", fontWeight = FontWeight.SemiBold)
                     Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                         listOf("system", "light", "dark").forEach { t -> FilterChip(selected = theme == t, onClick = { setTheme(t) }, label = { Text(t.replaceFirstChar { it.uppercase() }) }) }
