@@ -236,6 +236,20 @@
       "local_path": "/workspace/solana-follow-app"
     },
     {
+      "id": "solana-wallet-watch",
+      "name": "Solana Wallet Watch",
+      "description": "Self-hosted web dashboard showing near-real-time buys and sells of the Solana wallets you monitor, with risk badges per token. The server is watch-only; optional trades go through Phantom in your browser, simulate-only by default.",
+      "status": "In progress",
+      "status_note": "Built locally, not published yet. Research only, not financial advice.",
+      "platform_override": "Web (self-hosted)",
+      "color": "#7E22CE",
+      "tags": [
+        "crypto",
+        "web"
+      ],
+      "local_path": "/workspace/solana-web-dashboard"
+    },
+    {
       "id": "car-part-compatibility",
       "name": "Car Part Compatibility",
       "description": "Phone app to check whether a part fits your car or truck (direct fit, needs modification or full fabrication), with step-by-step install guides, a garage of your vehicles, wish lists and parts listings.",
@@ -252,9 +266,9 @@
     {
       "id": "get-kraken",
       "name": "Get Kraken",
-      "description": "A project chat exists, but no app files, repo or release were found yet.",
+      "description": "A project chat exists. So far its work has been Solana Follow and Solana Wallet Watch (listed separately); no Kraken app files, repo or release yet.",
       "status": "Idea",
-      "status_note": "Nothing built or published yet.",
+      "status_note": "No Kraken app built or published yet.",
       "platform_override": "TBD",
       "color": "#0E7490",
       "tags": [

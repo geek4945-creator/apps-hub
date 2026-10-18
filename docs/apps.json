@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-17T19:14:04Z",
+  "generated_at": "2026-10-18T07:08:55Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -66,14 +66,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/flimsy-read",
       "web_url": "https://geek4945-creator.github.io/flimsy-read/",
-      "release_url": "https://github.com/geek4945-creator/flimsy-read/releases/tag/v0.5.16",
+      "release_url": "https://github.com/geek4945-creator/flimsy-read/releases/tag/v0.5.17",
       "platform": "Android APK + Web",
-      "version": "0.5.16",
-      "apk_url": "https://github.com/geek4945-creator/flimsy-read/releases/download/v0.5.16/flimsy-read.apk",
+      "version": "0.5.17",
+      "apk_url": "https://github.com/geek4945-creator/flimsy-read/releases/download/v0.5.17/flimsy-read.apk",
       "apk_name": "flimsy-read.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T19:09:18Z",
+      "last_updated": "2026-10-17T20:12:25Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -91,14 +91,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/folio-reader",
       "web_url": "https://geek4945-creator.github.io/folio-reader/",
-      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.16",
+      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.17",
       "platform": "Android APK + Web",
-      "version": "0.5.16",
-      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.16/folio-reader.apk",
+      "version": "0.5.17",
+      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.17/folio-reader.apk",
       "apk_name": "folio-reader.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T19:09:20Z",
+      "last_updated": "2026-10-17T20:12:23Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -123,7 +123,7 @@
       "apk_name": "RetroPocket-debug.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T18:42:20Z",
+      "last_updated": "2026-10-17T19:34:28Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -205,7 +205,7 @@
           "url": "https://github.com/geek4945-creator/image-to-dxf/raw/main/image-to-dxf-windows.zip"
         }
       ],
-      "last_updated": "2026-10-16T02:26:09Z",
+      "last_updated": "2026-10-18T01:10:30Z",
       "web_ok": true,
       "apk_ok": null
     },
@@ -359,6 +359,27 @@
       "last_updated": null
     },
     {
+      "id": "solana-wallet-watch",
+      "name": "Solana Wallet Watch",
+      "description": "Self-hosted web dashboard showing near-real-time buys and sells of the Solana wallets you monitor, with risk badges per token. The server is watch-only; optional trades go through Phantom in your browser, simulate-only by default.",
+      "status": "In progress",
+      "status_note": "Built locally, not published yet. Research only, not financial advice.",
+      "color": "#7E22CE",
+      "tags": [
+        "crypto",
+        "web"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Web (self-hosted)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
       "id": "car-part-compatibility",
       "name": "Car Part Compatibility",
       "description": "Phone app to check whether a part fits your car or truck (direct fit, needs modification or full fabrication), with step-by-step install guides, a garage of your vehicles, wish lists and parts listings.",
@@ -382,9 +403,9 @@
     {
       "id": "get-kraken",
       "name": "Get Kraken",
-      "description": "A project chat exists, but no app files, repo or release were found yet.",
+      "description": "A project chat exists. So far its work has been Solana Follow and Solana Wallet Watch (listed separately); no Kraken app files, repo or release yet.",
       "status": "Idea",
-      "status_note": "Nothing built or published yet.",
+      "status_note": "No Kraken app built or published yet.",
       "color": "#0E7490",
       "tags": [
         "idea"
