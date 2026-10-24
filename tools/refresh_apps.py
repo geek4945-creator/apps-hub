@@ -131,6 +131,23 @@ def build_entry(src, prev, check):
             print("  note: %s has no release yet, using fallback" % src["id"])
         else:
             print("  warn: no release asset matching %s in %s" % (src["apk_asset"], repo), file=sys.stderr)
+    elif src.get("release_asset"):
+        # Non-APK app (web/desktop): take version, release page and downloads from its newest matching release.
+        releases = api("/repos/%s/releases?per_page=30" % repo)
+        hit = newest_release_with(releases, src["release_asset"])
+        if hit:
+            published, rel, asset = hit
+            version = re.sub(src.get("version_strip", "^$"), "", rel["tag_name"]) if src.get("version_strip") else version_of(rel)
+            e["release_url"] = rel["html_url"]
+            updated = published or updated
+            for x in src.get("release_downloads", []):
+                m = re.compile(x["asset"])
+                for a in rel.get("assets", []):
+                    if m.search(a["name"]):
+                        extras.append({"label": x["label"], "url": rel["html_url"] if private else a["browser_download_url"]})
+                        break
+        else:
+            print("  warn: no release asset matching %s in %s" % (src["release_asset"], repo), file=sys.stderr)
     for x in src.get("extra_downloads", []):
         extras.append({"label": x["label"], "url": x["url"]})
     plat = src.get("platform_override")

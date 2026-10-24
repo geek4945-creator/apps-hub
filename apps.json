@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-18T07:08:55Z",
+  "generated_at": "2026-10-24T07:10:16Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -123,7 +123,7 @@
       "apk_name": "RetroPocket-debug.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T19:34:28Z",
+      "last_updated": "2026-10-24T06:02:30Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -184,7 +184,7 @@
     {
       "id": "image-to-dxf",
       "name": "Image to DXF",
-      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters. Runs in the browser.",
+      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters, with edit tools, layers, Fold/Box flat patterns and a 3D preview. Runs in the browser, with a Windows package.",
       "status": "Live",
       "status_note": "",
       "color": "#B91C1C",
@@ -194,18 +194,23 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/image-to-dxf",
       "web_url": "https://geek4945-creator.github.io/image-to-dxf/",
-      "platform": "Web",
-      "version": "web",
+      "release_url": "https://github.com/geek4945-creator/image-to-dxf/releases/tag/hard-v1.5",
+      "platform": "Web + Windows",
+      "version": "1.5",
       "apk_url": null,
       "apk_name": null,
       "apk_private": false,
       "extra_downloads": [
         {
           "label": "Windows package (zip)",
-          "url": "https://github.com/geek4945-creator/image-to-dxf/raw/main/image-to-dxf-windows.zip"
+          "url": "https://github.com/geek4945-creator/image-to-dxf/releases/download/hard-v1.5/image-to-dxf-windows.zip"
+        },
+        {
+          "label": "Hard Version 1 (web)",
+          "url": "https://geek4945-creator.github.io/image-to-dxf/v1/"
         }
       ],
-      "last_updated": "2026-10-18T01:10:30Z",
+      "last_updated": "2026-10-24T04:06:56Z",
       "web_ok": true,
       "apk_ok": null
     },

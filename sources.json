@@ -115,13 +115,13 @@
     {
       "id": "image-to-dxf",
       "name": "Image to DXF",
-      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters. Runs in the browser.",
+      "description": "Turn pictures, scans, PDFs or camera shots into DXF cut files (closed outlines in real-world units) for CNC, laser and plasma cutters, with edit tools, layers, Fold/Box flat patterns and a 3D preview. Runs in the browser, with a Windows package.",
       "repo": "geek4945-creator/image-to-dxf",
       "web_url": "https://geek4945-creator.github.io/image-to-dxf/",
       "extra_downloads": [
         {
-          "label": "Windows package (zip)",
-          "url": "https://github.com/geek4945-creator/image-to-dxf/raw/main/image-to-dxf-windows.zip"
+          "label": "Hard Version 1 (web)",
+          "url": "https://geek4945-creator.github.io/image-to-dxf/v1/"
         }
       ],
       "color": "#B91C1C",
@@ -129,8 +129,16 @@
         "cutting",
         "cad"
       ],
-      "platform_override": "Web",
-      "status": "Live"
+      "platform_override": "Web + Windows",
+      "status": "Live",
+      "release_asset": "^image-to-dxf-windows\\.zip$",
+      "release_downloads": [
+        {
+          "label": "Windows package (zip)",
+          "asset": "^image-to-dxf-windows\\.zip$"
+        }
+      ],
+      "version_strip": "^hard-v"
     },
     {
       "id": "apps-hub",
