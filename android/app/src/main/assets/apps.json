@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-24T07:10:16Z",
+  "generated_at": "2026-10-25T07:06:27Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -91,14 +91,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/folio-reader",
       "web_url": "https://geek4945-creator.github.io/folio-reader/",
-      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.17",
+      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.18",
       "platform": "Android APK + Web",
-      "version": "0.5.17",
-      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.17/folio-reader.apk",
+      "version": "0.5.18",
+      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.18/folio-reader.apk",
       "apk_name": "folio-reader.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T20:12:23Z",
+      "last_updated": "2026-10-25T04:36:21Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -123,7 +123,7 @@
       "apk_name": "RetroPocket-debug.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-24T06:02:30Z",
+      "last_updated": "2026-10-24T20:20:43Z",
       "web_ok": true,
       "apk_ok": true
     },
