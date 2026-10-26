@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-25T07:06:27Z",
+  "generated_at": "2026-10-26T07:02:58Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -91,14 +91,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/folio-reader",
       "web_url": "https://geek4945-creator.github.io/folio-reader/",
-      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.18",
+      "release_url": "https://github.com/geek4945-creator/folio-reader/releases/tag/v0.5.19",
       "platform": "Android APK + Web",
-      "version": "0.5.18",
-      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.18/folio-reader.apk",
+      "version": "0.5.19",
+      "apk_url": "https://github.com/geek4945-creator/folio-reader/releases/download/v0.5.19/folio-reader.apk",
       "apk_name": "folio-reader.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-25T04:36:21Z",
+      "last_updated": "2026-10-25T23:38:26Z",
       "web_ok": true,
       "apk_ok": true
     },
