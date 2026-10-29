@@ -284,6 +284,21 @@
       ]
     },
     {
+      "id": "media-server-setup",
+      "name": "Media Server Setup Kit",
+      "description": "Step-by-step checklist and PowerShell scripts to turn a Windows desktop with 11 drives into an Emby media server, pooled with StableBit DrivePool and protected by SnapRAID parity, with firewall, power and scheduled-sync setup.",
+      "status": "In progress",
+      "status_note": "Built locally, not published yet.",
+      "platform_override": "Windows (scripts + guide)",
+      "color": "#334155",
+      "tags": [
+        "media",
+        "home-server",
+        "windows"
+      ],
+      "local_path": "/workspace/media-server-setup"
+    },
+    {
       "id": "home-server-dashboard",
       "name": "Home Server Dashboard",
       "description": "Dashboard for the home server: status of services and machines in one place.",

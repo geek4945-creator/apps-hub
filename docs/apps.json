@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-26T07:02:58Z",
+  "generated_at": "2026-10-29T07:04:28Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -398,6 +398,28 @@
       "repo_url": null,
       "web_url": null,
       "platform": "Android + iPhone (planned)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "media-server-setup",
+      "name": "Media Server Setup Kit",
+      "description": "Step-by-step checklist and PowerShell scripts to turn a Windows desktop with 11 drives into an Emby media server, pooled with StableBit DrivePool and protected by SnapRAID parity, with firewall, power and scheduled-sync setup.",
+      "status": "In progress",
+      "status_note": "Built locally, not published yet.",
+      "color": "#334155",
+      "tags": [
+        "media",
+        "home-server",
+        "windows"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Windows (scripts + guide)",
       "version": "In progress",
       "apk_url": null,
       "apk_name": null,
