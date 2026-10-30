@@ -299,6 +299,21 @@
       "local_path": "/workspace/media-server-setup"
     },
     {
+      "id": "offline-survival-app",
+      "name": "Offline Survival Guide",
+      "description": "Single-page offline survival guide for the Portland area: water purification, first aid (people and dogs), food storage, heating, off-grid solar, sanitation, and Portland street maps, all viewable without internet.",
+      "repo": "geek4945-creator/offline-survival-app",
+      "status": "In progress",
+      "status_note": "Repo created Oct 29 with the app as a zip file; not published as a web page or APK yet.",
+      "platform_override": "Web (offline HTML)",
+      "color": "#15803D",
+      "tags": [
+        "survival",
+        "offline",
+        "portland"
+      ]
+    },
+    {
       "id": "home-server-dashboard",
       "name": "Home Server Dashboard",
       "description": "Dashboard for the home server: status of services and machines in one place.",

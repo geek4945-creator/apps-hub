@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-29T07:04:28Z",
+  "generated_at": "2026-10-30T07:02:07Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -16,14 +16,14 @@
       ],
       "repo_url": "https://github.com/geek4945-creator/jds-toolkit",
       "web_url": "https://geek4945-creator.github.io/jds-toolkit/",
-      "release_url": "https://github.com/geek4945-creator/jds-toolkit/releases/tag/v1.0.7",
+      "release_url": "https://github.com/geek4945-creator/jds-toolkit/releases/tag/v1.0.8",
       "platform": "Android APK + Web",
       "version": "1.0.8",
       "apk_url": "https://github.com/geek4945-creator/jds-toolkit/releases/download/v1.0.8/jds-toolkit-v1.0.8.apk",
       "apk_name": "jds-toolkit-v1.0.8.apk",
       "apk_private": false,
       "extra_downloads": [],
-      "last_updated": "2026-10-17T18:54:06Z",
+      "last_updated": "2026-10-29T21:11:05Z",
       "web_ok": true,
       "apk_ok": true
     },
@@ -420,6 +420,28 @@
       "repo_url": null,
       "web_url": null,
       "platform": "Windows (scripts + guide)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "offline-survival-app",
+      "name": "Offline Survival Guide",
+      "description": "Single-page offline survival guide for the Portland area: water purification, first aid (people and dogs), food storage, heating, off-grid solar, sanitation, and Portland street maps, all viewable without internet.",
+      "status": "In progress",
+      "status_note": "Repo created Oct 29 with the app as a zip file; not published as a web page or APK yet.",
+      "color": "#15803D",
+      "tags": [
+        "survival",
+        "offline",
+        "portland"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/offline-survival-app",
+      "web_url": null,
+      "platform": "Web (offline HTML)",
       "version": "In progress",
       "apk_url": null,
       "apk_name": null,
