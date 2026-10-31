@@ -127,7 +127,11 @@ def build_entry(src, prev, check):
         elif src.get("fallback"):
             fb = src["fallback"]
             version, apk_url, apk_name = fb["version"], fb["apk_url"], fb.get("apk_name")
-            e["release_url"] = "https://github.com/%s/releases/tag/%s" % (repo, fb.get("tag", "v" + version))
+            if "release_url" in fb:  # APK hosted elsewhere (e.g. Pages); no GitHub release page to link
+                if fb["release_url"]:
+                    e["release_url"] = fb["release_url"]
+            else:
+                e["release_url"] = "https://github.com/%s/releases/tag/%s" % (repo, fb.get("tag", "v" + version))
             print("  note: %s has no release yet, using fallback" % src["id"])
         else:
             print("  warn: no release asset matching %s in %s" % (src["apk_asset"], repo), file=sys.stderr)

@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-10-30T07:02:07Z",
+  "generated_at": "2026-10-31T07:07:01Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -238,6 +238,30 @@
       "apk_ok": true
     },
     {
+      "id": "long-haul-tracker",
+      "name": "JD's Towing - Long Haul Tracker",
+      "description": "Hours-of-service log for long tow runs: trip timer with over-limit countdown, jobs, expenses, weigh-station reminders, and export by job or date range. Checks for its own updates.",
+      "status": "Live",
+      "status_note": "",
+      "color": "#1D4ED8",
+      "tags": [
+        "towing",
+        "business",
+        "offline"
+      ],
+      "repo_url": "https://github.com/geek4945-creator/tow-hos-log",
+      "web_url": "https://geek4945-creator.github.io/tow-hos-log/",
+      "platform": "Android APK + Web",
+      "version": "1.2",
+      "apk_url": "https://geek4945-creator.github.io/tow-hos-log/TowHOSLog.apk",
+      "apk_name": "TowHOSLog.apk",
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": "2026-10-30T21:11:17Z",
+      "web_ok": true,
+      "apk_ok": true
+    },
+    {
       "id": "marco",
       "name": "Marco",
       "description": "Self-hosted Marco Polo-style chat with push-to-talk and video messages for iPhone and Android, plus an admin panel.",
@@ -442,6 +466,50 @@
       "repo_url": "https://github.com/geek4945-creator/offline-survival-app",
       "web_url": null,
       "platform": "Web (offline HTML)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "sf-visits",
+      "name": "SF Visits",
+      "description": "Field app for JD's Towing visits to State Farm agent offices around Portland: nearest-office check-in by GPS, visit notes and photos, follow-up reminders, referrals and route planning.",
+      "status": "In progress",
+      "status_note": "v1.6 built as a test APK and web version on the box; not published to GitHub yet.",
+      "color": "#B91C1C",
+      "tags": [
+        "towing",
+        "business",
+        "marketing"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Android APK + Web (not published)",
+      "version": "In progress",
+      "apk_url": null,
+      "apk_name": null,
+      "apk_private": false,
+      "extra_downloads": [],
+      "last_updated": null
+    },
+    {
+      "id": "offgrid-kit",
+      "name": "Offgrid Kit",
+      "description": "Offline library and local AI helper for off-grid living: 44 practical guides (solar, alternator generators, batteries, water, first aid), Army field manuals, offline Wikipedia and maps, runnable from a PC or USB stick.",
+      "status": "In progress",
+      "status_note": "Built on the box (Windows/Linux USB kit); not published yet.",
+      "color": "#4D7C0F",
+      "tags": [
+        "survival",
+        "offline",
+        "ai"
+      ],
+      "repo_url": null,
+      "web_url": null,
+      "platform": "Windows/Linux (offline)",
       "version": "In progress",
       "apk_url": null,
       "apk_name": null,

@@ -160,6 +160,27 @@
       "status": "Live"
     },
     {
+      "id": "long-haul-tracker",
+      "name": "JD's Towing - Long Haul Tracker",
+      "description": "Hours-of-service log for long tow runs: trip timer with over-limit countdown, jobs, expenses, weigh-station reminders, and export by job or date range. Checks for its own updates.",
+      "repo": "geek4945-creator/tow-hos-log",
+      "web_url": "https://geek4945-creator.github.io/tow-hos-log/",
+      "apk_asset": "\\.apk$",
+      "fallback": {
+        "version": "1.2",
+        "apk_url": "https://geek4945-creator.github.io/tow-hos-log/TowHOSLog.apk",
+        "apk_name": "TowHOSLog.apk",
+        "release_url": null
+      },
+      "color": "#1D4ED8",
+      "tags": [
+        "towing",
+        "business",
+        "offline"
+      ],
+      "status": "Live"
+    },
+    {
       "id": "marco",
       "name": "Marco",
       "description": "Self-hosted Marco Polo-style chat with push-to-talk and video messages for iPhone and Android, plus an admin panel.",
@@ -312,6 +333,36 @@
         "offline",
         "portland"
       ]
+    },
+    {
+      "id": "sf-visits",
+      "name": "SF Visits",
+      "description": "Field app for JD's Towing visits to State Farm agent offices around Portland: nearest-office check-in by GPS, visit notes and photos, follow-up reminders, referrals and route planning.",
+      "status": "In progress",
+      "status_note": "v1.6 built as a test APK and web version on the box; not published to GitHub yet.",
+      "platform_override": "Android APK + Web (not published)",
+      "color": "#B91C1C",
+      "tags": [
+        "towing",
+        "business",
+        "marketing"
+      ],
+      "local_path": "/workspace/sf-visits"
+    },
+    {
+      "id": "offgrid-kit",
+      "name": "Offgrid Kit",
+      "description": "Offline library and local AI helper for off-grid living: 44 practical guides (solar, alternator generators, batteries, water, first aid), Army field manuals, offline Wikipedia and maps, runnable from a PC or USB stick.",
+      "status": "In progress",
+      "status_note": "Built on the box (Windows/Linux USB kit); not published yet.",
+      "platform_override": "Windows/Linux (offline)",
+      "color": "#4D7C0F",
+      "tags": [
+        "survival",
+        "offline",
+        "ai"
+      ],
+      "local_path": "/workspace/offgrid-kit"
     },
     {
       "id": "home-server-dashboard",
