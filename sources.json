@@ -354,8 +354,8 @@
       "name": "Offgrid Kit",
       "description": "Offline library and local AI helper for off-grid living: 44 practical guides (solar, alternator generators, batteries, water, first aid), Army field manuals, offline Wikipedia and maps, runnable from a PC or USB stick.",
       "status": "In progress",
-      "status_note": "Built on the box (Windows/Linux USB kit); not published yet.",
-      "platform_override": "Windows/Linux (offline)",
+      "status_note": "Built on the box as a Windows/Linux USB kit plus an Android test APK (v1.1.0); not published to GitHub yet.",
+      "platform_override": "Windows/Linux (offline) + Android APK (not published)",
       "color": "#4D7C0F",
       "tags": [
         "survival",
