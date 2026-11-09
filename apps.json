@@ -1,7 +1,7 @@
 {
   "schema": 1,
   "owner": "geek4945-creator",
-  "generated_at": "2026-11-09T08:14:39Z",
+  "generated_at": "2026-11-09T08:53:46Z",
   "apps": [
     {
       "id": "jds-toolkit",
@@ -50,7 +50,7 @@
       "extra_downloads": [],
       "last_updated": "2026-10-17T18:50:45Z",
       "web_ok": true,
-      "apk_ok": false
+      "apk_ok": true
     },
     {
       "id": "flimsy-read",
@@ -100,7 +100,7 @@
       "extra_downloads": [],
       "last_updated": "2026-11-04T06:05:57Z",
       "web_ok": true,
-      "apk_ok": false
+      "apk_ok": true
     },
     {
       "id": "retro-pocket",
