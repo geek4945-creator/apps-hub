@@ -414,6 +414,20 @@
         "home-server",
         "briefing"
       ]
+    },
+    {
+      "id": "print-shop-separator",
+      "name": "Print Shop Separator",
+      "description": "Turn any photo into a print-shop package: 300 DPI art, chest logo, mockups, spec sheet, and screen-print color separations as a ZIP.",
+      "repo": "geek4945-creator/print-shop-separator",
+      "web_url": "https://geek4945-creator.github.io/print-shop-separator/",
+      "apk_asset": "\\.apk$",
+      "color": "#B45309",
+      "tags": [
+        "printing",
+        "design"
+      ],
+      "status": "Live"
     }
   ]
 }
